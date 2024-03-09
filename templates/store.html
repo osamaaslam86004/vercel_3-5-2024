@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% if response.status_code %}
+
+{{response.status_code}}
+
+{% else %}
+
+{{response.body}}
+
+{% endif %}
+
+{% endblock content %}
