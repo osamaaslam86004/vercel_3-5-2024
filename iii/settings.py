@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "django_bootstrap5",
     "ckeditor",
-    "book_",
     "phonenumber_field",
     "django_countries",
 ]
