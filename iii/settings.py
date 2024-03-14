@@ -15,8 +15,6 @@ import os
 from decouple import config
 
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,11 +27,13 @@ SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-if DEBUG:    # localhost and "diverse-intense-" must be in list for password reset functionality
+if (
+    DEBUG
+):  # localhost and "diverse-intense-" must be in list for password reset functionality
     ALLOWED_HOSTS = ["localhost", "127.0.0.1", "diverse-intense-whippet.ngrok-free.app"]
     # ALLOWED_HOSTS = ["diverse-intense-whippet.ngrok-free.app", "localhost:8000"]
 else:
-    ALLOWED_HOSTS = ["osama11111.pythonanywhere.com"]
+    ALLOWED_HOSTS = ["vercel-3-5-2024.vercel.app"]
 
 # Application definition
 
@@ -95,9 +95,6 @@ WSGI_APPLICATION = "iii.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASES = {}
-
-
-
 
 
 # Password validation
@@ -183,7 +180,7 @@ if not DEBUG:
 if DEBUG:
     CSRF_TRUSTED_ORIGINS = ["https://diverse-intense-whippet.ngrok-free.app"]
 else:
-    CSRF_TRUSTED_ORIGINS = ["https://osama11111.pythonanywhere.com"]
+    CSRF_TRUSTED_ORIGINS = ["https://vercel-3-5-2024.vercel.app"]
 
 
 CKEDITOR_CONFIGS = {
@@ -326,26 +323,4 @@ CKEDITOR_CONFIGS = {
             ]
         ),
     }
-}
-
-# provide error detail for django axes
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-    },
-    "loggers": {
-        "axes": {
-            "handlers": ["console"],
-            "level": "DEBUG",
-            "propagate": True,
-        },
-    },
 }
