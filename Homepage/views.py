@@ -25,7 +25,7 @@ class HomePageView(View):
             return render(
                 request,
                 self.template_name,
-                {"response_content": response.response_content},
+                {"response_content": response.content},
             )
         else:
             return render(
