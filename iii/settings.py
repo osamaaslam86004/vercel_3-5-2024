@@ -132,11 +132,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-AUTH_USER_MODEL = "Homepage.CustomUser"
+# AUTH_USER_MODEL = "Homepage.CustomUser"
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "/login/"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+# CRISPY_TEMPLATE_PACK = "bootstrap5"
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 # CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 
