@@ -33,7 +33,7 @@ if (
     ALLOWED_HOSTS = ["localhost", "127.0.0.1", "diverse-intense-whippet.ngrok-free.app"]
     # ALLOWED_HOSTS = ["diverse-intense-whippet.ngrok-free.app", "localhost:8000"]
 else:
-    ALLOWED_HOSTS = ["vercel-3-5-2024.vercel.app"]
+    ALLOWED_HOSTS = ["vercel-3-5-2024.vercel.app", "*.vercel.app"]
 
 # Application definition
 
