@@ -11,7 +11,11 @@ class HomePageView(View):
     def get(self, request, **kwargs):
         # Sending a POST request to the specified URL
         url = "https://osamaaslam.pythonanywhere.com/api/auth/status/"
-        headers = {"Content-type": "application/json"}
+        headers = {
+            "Content-type": "application/json",
+            "Referrer-Policy": "same-origin",
+            "Cross-Origin-Opener-Policy": "same-origin",
+        }
 
         data = json.dumps({"key": "The message has received"})
 
