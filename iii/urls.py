@@ -22,13 +22,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("blog/", include(("blog.urls", "blog"))),
-    path("", include(("book_.urls", "book_"))),
-    path("cart/", include(("cart.urls", "cart"))),
-    path("checkout/", include(("checkout.urls", "checkout"))),
-    path("", include(("cv_api.urls", "cv_api"))),
     path("", include(("Homepage.urls", "Homepage"))),
-    path("", include(("i.urls", "i"))),
     path("admin/", admin.site.urls),
 ]
 if settings.DEBUG:
