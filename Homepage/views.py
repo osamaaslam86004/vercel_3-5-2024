@@ -19,7 +19,8 @@ class HomePageView(View):
 
         data = json.dumps({"key": "The message has received"})
 
-        response = requests.post(url, data=data, headers=headers, verify=False)
+        # response = requests.post(url, data=data, headers=headers, verify=False)
+        response = requests.post(url, data=data, headers=headers)
         if response.status_code == 200:
             # Rendering the response in the template
             return render(
