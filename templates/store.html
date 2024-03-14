@@ -4,13 +4,13 @@
 {% block content %}
 
 
-{% if response.status_code %}
+{% if response_status_code %}
 
-{{response.status_code}}
+{{response_status_code}}
 
 {% else %}
 
-{{response.body}}
+{{response_content}}
 
 {% endif %}
 

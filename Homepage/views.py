@@ -19,9 +19,13 @@ class HomePageView(View):
         if response.status_code == 200:
             # Rendering the response in the template
             return render(
-                request, self.template_name, {"response_content": response.content}
+                request,
+                self.template_name,
+                {"response_content": response.response_content},
             )
         else:
             return render(
-                request, self.template_name, {"response_content": response.status_code}
+                request,
+                self.template_name,
+                {"response_status_code": response.status_code},
             )
