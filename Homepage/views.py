@@ -10,7 +10,7 @@ class HomePageView(View):
 
     def get(self, request, **kwargs):
         # Sending a POST request to the specified URL
-        url = "https://osamaaslampythonanywhere.com/api/auth/status"
+        url = "https://osamaaslam.pythonanywhere.com/api/auth/status/"
         headers = {"Content-type": "application/json"}
 
         data = json.dumps({"key": "The message has received"})
