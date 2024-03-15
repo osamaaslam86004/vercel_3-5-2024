@@ -13,8 +13,9 @@ class HomePageView(View):
         url = "https://osamaaslam.pythonanywhere.com/api/auth/status/"
         headers = {
             "Content-type": "application/json",
-            # "Referrer-Policy": "same-origin",
-            # "Cross-Origin-Opener-Policy": "same-origin",
+            "x-forwarded-host": "true",
+            "Referrer-Policy": "same-origin",
+            "Cross-Origin-Opener-Policy": "same-origin",
         }
 
         data = json.dumps({"key": "The message has received"})
