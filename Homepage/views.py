@@ -36,7 +36,7 @@ class HomePageView(TemplateView):
         import requests
 
         headers = {"Content-type": "applications/json"}
-        url = "https://diverse-intense-whippet.ngrok-free.app/Homepage/"
+        url = "https://ecommracapi.pythonanywhere.com/Homepage/"
         images = [
             "box_7",
             "box_6",
