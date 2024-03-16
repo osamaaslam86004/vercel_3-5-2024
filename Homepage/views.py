@@ -29,7 +29,7 @@ class HomePageView(TemplateView):
         ]
         cart_icon = "cart_50_50"
         data = {"images": images, "cart_icon": cart_icon}
-        json_data = json.dump(data)
+        json_data = json.dumps(data)
 
         response = requests.post(url=url, data=json_data, headers=headers)
         if response.status_code == 200:
