@@ -14,8 +14,6 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        import requests
-
         headers = {"Content-type": "applications/json"}
         url = "https://ecommracapi.pythonanywhere.com/Homepage/"
         images = [
@@ -35,9 +33,11 @@ class HomePageView(TemplateView):
 
         response = requests.post(url=url, data=json_data, headers=headers)
         if response.status_code == 200:
-            image_urls = response.content["images"]
-            cart_url = response.content["cart_icon"]
-            zipped = response.content["zipped"]
+            data = json.loads(response.content)
+
+            image_urls = data["images"]
+            cart_url = data["cart_icon"]
+            zipped = data["zipped"]
 
             context["images"] = image_urls
             context["cart_url"] = cart_url
