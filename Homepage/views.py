@@ -8,25 +8,6 @@ from django.views.generic import TemplateView
 from i.browsing_history import your_browsing_history
 
 
-import cloudinary
-
-if not settings.DEBUG:
-    cloudinary.config(
-        cloud_name="dh8vfw5u0",
-        api_key="667912285456865",
-        api_secret="QaF0OnEY-W1v2GufFKdOjo3KQm8",
-        api_proxy="http://proxy.server:3128",
-    )
-else:
-    cloudinary.config(
-        cloud_name="dh8vfw5u0",
-        api_key="667912285456865",
-        api_secret="QaF0OnEY-W1v2GufFKdOjo3KQm8",
-    )
-import cloudinary.uploader
-from cloudinary.uploader import upload
-
-
 class HomePageView(TemplateView):
     template_name = "store.html"
 
