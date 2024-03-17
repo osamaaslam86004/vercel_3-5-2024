@@ -8,13 +8,18 @@ from django.views.generic import TemplateView
 from i.browsing_history import your_browsing_history
 
 
+import json
+import requests
+from django.views.generic import TemplateView
+
+
 class HomePageView(TemplateView):
     template_name = "store.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        headers = {"Content-type": "applications/json"}
+        headers = {"Content-Type": "application/json"}
         url = "https://ecommracapi.pythonanywhere.com/Homepage/"
         images = [
             "box_7",
@@ -31,15 +36,28 @@ class HomePageView(TemplateView):
         data = {"images": images, "cart_icon": cart_icon}
         json_data = json.dumps(data)
 
-        response = requests.post(url=url, data=json_data, headers=headers)
-        if response.status_code == 200:
-            data = json.loads(response.content)
+        try:
+            response = requests.post(
+                url, data=json_data, headers=headers, verify=True
+            )  # Enable certificate verification
+            response.raise_for_status()  # Raise an exception for non-200 status codes
 
-            image_urls = data["images"]
-            cart_url = data["cart_icon"]
-            zipped = data["zipped"]
+            if response.status_code == 200:
+                data = response.json()
+                print(f"data_________________{data}")
+                print(f"headers: {response.headers}")
 
-            context["images"] = image_urls
-            context["cart_url"] = cart_url
-            context["zipped"] = zipped
-            return context
+                image_urls = data.get("data", {}).get("images", [])
+                cart_url = data.get("data", {}).get("cart_icon")
+                zipped = data.get("zipped")
+
+                context["images"] = image_urls
+                context["cart_url"] = cart_url
+                context["zipped"] = zipped
+            else:
+                print(f"Unexpected content type: {response.status_code}")
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error making request: {e}")
+
+        return context
